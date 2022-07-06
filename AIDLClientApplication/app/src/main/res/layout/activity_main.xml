@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
-        android:text="Get Left Temp"/>
+        android:text="Get AC value"/>
 
     <Button
         android:id="@+id/button_get_right_temp"
@@ -29,6 +29,6 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
-        android:text="Get Right Temp"/>
+        android:text="Set AC Value"/>
 
 </LinearLayout>

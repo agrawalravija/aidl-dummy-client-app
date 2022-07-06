@@ -21,6 +21,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private HvacAidlInterface hvacAidl;
+    private boolean acValue = false;
     private ServiceConnection serviceCon = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
@@ -47,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
         findViewById(R.id.button_get_left_temp).setOnClickListener(v -> {
             try {
-                int value = hvacAidl.getLeftTempValue();
+                boolean value = hvacAidl.getAcValue();
                 Log.i("HvacAIDL", "value: " + value);
             } catch (RemoteException e) {
                 e.printStackTrace();
@@ -56,8 +57,9 @@ public class MainActivity extends AppCompatActivity {
 
         findViewById(R.id.button_get_right_temp).setOnClickListener(v -> {
             try {
-                int value = hvacAidl.getRightTempValue();
-                Log.i("HvacAIDL", "value: " + value);
+                hvacAidl.setAcValue(acValue);
+                acValue = !acValue;
+                //Log.i("HvacAIDL", "value: " + value);
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
